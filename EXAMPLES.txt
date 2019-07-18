@@ -1,0 +1,1896 @@
+DAY 2
+EXAMPLE1   :  Student.java
+package com.lti.training.day2;
+public class student {
+    String name;
+	String college;
+	String doj;
+}
+
+   App.java
+package com.lti.training.day2;
+public class App {
+
+	public static void main(String[] args) {
+		//creating the object to the class
+		int i =0;
+		 student s[] = new student[10];//creating an array
+		 
+		for(i=0;i<10;i++)
+		{
+			s[i] = new student();//creating an object for an array
+			s[i].name = "sangee";
+			 s[i].college = "sairam";
+			 s[i].doj = "21may";
+			System.out.println(s[i].name+" from "+s[i].college+" and doj is "+s[i].doj);
+			
+		}
+	}
+
+EXAMPLE2 :   Passport.java
+
+package com.lti.training.day2;
+//javaBean / POJO(plain old java objects)
+public class Passport {
+ private String passNo;
+private String issueDate;
+private String expDate;
+private String name;
+ public String getPassNo() {
+	return passNo;
+}
+public void setPassNo(String passNo) {
+	this.passNo = passNo;
+}
+public String getIssueDate() {
+	return issueDate;
+}
+public void setIssueDate(String issueDate) {
+	this.issueDate = issueDate;
+}
+public String getExpDate() {
+	return expDate;
+}
+public void setExpDate(String expDate) {
+	this.expDate = expDate;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public static void main(String[] args) {
+	 Passport p = new  Passport();
+	 p.setPassNo("1234");
+	 p.setExpDate("31jun");
+	 p.setIssueDate("1jan");
+	 p.setName("abc");
+	 System.out.println(p.getPassNo());
+	 System.out.println(p.getExpDate());
+	 System.out.println(p.getIssueDate());
+	 System.out.println(p.getName());
+			}
+}
+
+
+EXAMPLE3 :  AadharCard.java
+
+package com.lti.training.day2;
+
+public class AadharCard {
+ private long adharNo;
+ private String name;
+ private String address;
+ //constructor is same as that the class
+public AadharCard(long adharNo, String name, String address) {
+	// super();
+	this.adharNo = adharNo;
+	this.name = name;
+	this.address = address;
+}
+public long getAdharNo() {
+	return adharNo;
+}
+public void setAdharNo(long adharNo) {
+	this.adharNo = adharNo;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getAddress() {
+	return address;
+}
+public void setAddress(String address) {
+	this.address = address;
+}
+public static void main(String args[] ) {
+	 AadharCard ac=new AadharCard(1233,"vijay","chennai");
+    System.out.println(ac.getAdharNo());
+    System.out.println(ac.getName());
+    System.out.println(ac.getAddress());
+    }
+}
+
+
+EXAMPLE4 : Employee.java ( going to link passport and aadharcard program)
+
+package com.lti.training.day2;
+
+public class employee {
+
+	 private int empno;
+	 private String name;
+	 private  String doj;
+	 private double salary;
+	 
+//has-a relationship 
+ //association
+ //one-to-one association
+
+	 private Passport passport;//class name
+	 private AadharCard adharcard;
+	public int getEmpno() {
+		return empno;
+	}
+	public void setEmpno(int empno) {
+		this.empno = empno;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDoj() {
+		return doj;
+	}
+	public void setDoj(String doj) {
+		this.doj = doj;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	public Passport getPassport() {
+		return passport;
+	}
+	public void setPassport(Passport passport) {
+		this.passport = passport;
+	}
+	public AadharCard getadharcard() {
+		return adharcard;
+	}
+	public void setadharcard(AadharCard adharcard) {
+		this.adharcard = adharcard;
+	}// class name
+}
+
+((((public class with newone)))
+
+package com.lti.training.day2;
+
+public class Empapp {
+	 public static void main(String args[]) {
+			employee e = new employee();
+			e.setEmpno(123);
+			e.setName("aaa");
+			e.setDoj("1jan");
+			e.setSalary(1000);
+			
+			Passport p1 = new Passport();
+			p1.setPassNo("112");
+			p1.setIssueDate("21 may19");
+			p1.setExpDate("22 may 37");
+			p1.setName("vijayhhh");
+			e.setPassport(p1);
+		 AadharCard c = new AadharCard(11122,"vijay","cghdg");
+		 e.setadharcard(c);
+		  System.out.println("employee no is "+e.getEmpno());
+	System.out.println("empl name is "+e.getName());
+	System.out.println("emp doj os "+e.getDoj());
+	System.out.println("salary is "+e.getSalary());
+	System.out.println("emp passno"+ e.getPassport().getPassNo());
+	System.out.println("pass issue is "+e.getPassport().getIssueDate());
+	System.out.println("pass exp is "+e.getPassport().getExpDate());
+	System.out.println("name is "+e.getPassport().getName());
+	System.out.println(e.getadharcard().getAdharNo());
+    System.out.println(e.getadharcard().getName());
+    System.out.println(e.getadharcard().getAddress());
+	 
+	 
+	 }			
+	 }		
+
+
+output:
+employee no is 123
+empl name is aaa
+emp doj os 1jan
+salary is 1000.0
+emp passno112
+pass issue is 21 may19
+pass exp is 22 may 37
+name is vijayhhh
+11122
+vijay
+cghdg
+
+
+OR USING FUNCTIONS
+Employee.java
+package com.lti.training.day2;
+
+public class employee {
+
+	 private int empno;
+	 private String name;
+	 private  String doj;
+	 private double salary;
+	 //has-a relationship 
+	 //association
+	 //one-to-one association
+	 private Passport passport;//class name
+	 private AadharCard adharcard;
+	public int getEmpno() {
+		return empno;
+	}
+	public void setEmpno(int empno) {
+		this.empno = empno;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDoj() {
+		return doj;
+	}
+	public void setDoj(String doj) {
+		this.doj = doj;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	public Passport getPassport() {
+		return passport;
+	}
+	public void setPassport(Passport passport) {
+		this.passport = passport;
+	}
+	public AadharCard getadharcard() {
+		return adharcard;
+	}
+	public void setadharcard(AadharCard adharcard) {
+		this.adharcard = adharcard;
+	}// class name
+	public void displayInfo() {
+		System.out.println("employee no is "+empno);
+		System.out.println("empl name is "+name);
+		System.out.println("emp doj os "+doj);
+		System.out.println("salary is "+salary);
+		System.out.println("emp passno"+ passport.getPassNo());
+		System.out.println("pass issue is "+passport.getIssueDate());
+		System.out.println("pass exp is "+passport.getExpDate());
+		System.out.println("name is "+passport.getName());
+		System.out.println(adharcard.getAdharNo());
+	    System.out.println(adharcard.getName());
+	    System.out.println(adharcard.getAddress());
+	}
+}
+
+Emplapp.java
+
+package com.lti.training.day2;
+
+public class Empapp {
+	 public static void main(String args[]) {
+			employee e = new employee();
+			e.setEmpno(123);
+			e.setName("aaa");
+			e.setDoj("1jan");
+			e.setSalary(1000);
+			
+			Passport p1 = new Passport();
+			p1.setPassNo("112");
+			p1.setIssueDate("21 may19");
+			p1.setExpDate("22 may 37");
+			p1.setName("vijayhhh");
+			e.setPassport(p1);
+		 AadharCard c = new AadharCard(11122,"vijay","cghdg");
+		 e.setadharcard(c);
+	e.displayInfo();
+	 
+	 }			
+	 }		
+--------------------===================
+
+EXAMPLE 2
+address.java
+
+
+package com.lti.training.day2;
+
+public class Address {
+private String city;
+private String state;
+private int pincode;
+public String getCity() {
+	return city;
+}
+public void setCity(String city) {
+	this.city = city;
+}
+public String getState() {
+	return state;
+}
+public void setState(String state) {
+	this.state = state;
+}
+public int getPincode() {
+	return pincode;
+}
+public void setPincode(int pincode) {
+	this.pincode = pincode;
+}
+public static void main(String args[]) {
+	Address add = new Address();
+	add.setCity("chennai");
+	add.setState("tn");
+	add.setPincode(600000);
+	
+	
+
+}
+}
+
+customer.java
+
+package com.lti.training.day2;
+
+public class Customer {
+	private String name;
+	private String email;
+private Address address;//has-a-relationship
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getEmail() {
+	return email;
+}
+public void setEmail(String email) {
+	this.email = email;
+}
+public Address getAddress() {
+	return address;
+}
+public void setAddress(Address address) {
+	this.address = address;
+}
+public void displayinfo() {
+	System.out.println("name is "+name);
+	System.out.println("email is "+email);
+	System.out.println("address is "+address.getCity());
+	System.out.println("state is "+address.getState());
+	System.out.println("pincode"+address.getPincode());
+}
+
+}
+
+custapp.java
+
+package com.lti.training.day2;
+
+public class Cusapp {
+	public static void main(String args[] ) {
+		Customer cust = new Customer();
+		cust.setName("aaa");
+		cust.setEmail("aaa@gmail.com");
+		Address addr = new Address();
+		addr.setCity("chennai");
+		addr.setState("tn");
+		
+		addr.setPincode(600000);
+		cust.setAddress(addr);
+	   cust.displayinfo();
+	}
+ }
+
+
+Examples for function
+
+package com.lti.training.day2;
+
+public class Calculator {
+public void add(int x , int y) {
+	System.out.println("add is " +(x+y));
+}
+public void sub(int x,int y) {
+	System.out.println(x-y);
+}
+public  static void mul(int x,int y) {
+	System.out.println(x*y);
+}
+	public static void main(String[] args) {
+		Calculator c=new Calculator();
+	c.add(2,3);
+	c.sub(3,4);
+                 Calculator.mul(2,6);   //or mul.(2,6);
+	}
+}
+
+USING THE LIBRARY FUNCTIONS
+
+package com.lti.training.day2;
+import java.lang.*;
+public class Sample
+{
+public static void main(String args[]) {
+		String str = "vijay";  //creating the object without "new"
+		String str1 = "sang";
+		char c1 = str.charAt(0);
+		String c=str.toUpperCase();
+		System.out.println(c1);
+		System.out.println(str1.charAt(1));
+		System.out.println(c);
+		
+		int x=65;
+		
+		System.out.println(Integer.toHexString(x));
+		System.out.println(Integer.toOctalString(x));
+		System.out.println(Integer.toBinaryString(x));
+		
+
+}
+}
+OUTPUT:
+v
+a
+VIJAY
+41
+101
+1000001
+
+
+
+----------------------------------------------------------------------------------------
+
+
+DAY  4
+
+
+EMPLOYEE.JAVA
+
+package Com.lti.training.day4;
+
+public class Employee {
+	
+	//instance variables
+	private int empno;
+	private String name;
+	
+	//class variables
+	private static double salary;
+	//public static  String companyName;-----static method
+	public static final String companyName="LTI";// static &final
+	
+	public int getEmpno() {
+		return empno;
+	}
+	public void setEmpno(int empno) {
+		this.empno = empno;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public static double getSalary() {
+		return salary;
+	}
+	public static void setSalary(double salary) {
+		Employee.salary = salary;
+	}
+	
+
+}
+
+
+EMPLOYEEMAIN.JAVA
+
+package Com.lti.training.day4;
+
+public class EmployeeMain {
+public static void main(String[] args) {
+	//Employee.companyName="LTI";
+	
+	 Employee emp1=new Employee();
+	 emp1.setEmpno(1001);
+	 emp1.setName("vijay");
+	 emp1.setSalary(1000);
+	 Employee emp2=new Employee();
+	 emp2.setEmpno(1002);
+	 emp2.setName("vasa");
+	 emp2.setSalary(10200);
+	 System.out.println(emp1.getEmpno());
+	 System.out.println(emp1.getName());
+	 System.out.println(emp1.getSalary());
+	  
+	 System.out.println(emp2.getEmpno());
+	 System.out.println(emp2.getName());
+	 System.out.println(emp2.getSalary());
+	 System.out.println(Employee.companyName);
+}
+}
+
+
+LAUNCHER
+
+LAUNCHER.JAVA
+
+package Com.lti.training.day4.interfaces;
+
+/**
+ * Inbuilt Launcher
+ * for launching mobile apps
+ * @author Google Inc
+ *
+ */
+public class Launcher {
+	
+	private static TaskManager taskManager=new TaskManager();
+
+	public void launch(MobileApplication mobileApp) {
+		mobileApp.start();
+	
+		taskManager. inform(mobileApp);
+		//mobileApp.pause();
+		//mobileApp.stop();
+	}	
+		
+	public void closeAllRunningApps() {
+		taskManager.clearAll();
+	}
+		
+	
+}
+MAIN.JAVA
+package Com.lti.training.day4.interfaces;
+
+public class Main {
+
+	 public static void main(String[] args) {
+		 Launcher launcher=new Launcher();
+		 MyMobileApplication1 app1=new  MyMobileApplication1();
+		 launcher.launch(app1);
+		 
+		 MyMobileApplication2 app2=new  MyMobileApplication2();
+		 launcher.launch(app2);
+		 
+		 //try displaying the count of running apps
+		 
+		//to close all the running apps 
+		 launcher.closeAllRunningApps();
+		app1.version(); // can not call the version using object since it is the interface since called using the class implements the interface
+		
+	 }
+}
+
+MOBILEAPPLICATION.JAVA
+
+package Com.lti.training.day4.interfaces;
+
+/**
+ * contract for a mobile Application
+ * @author Google Inc
+ *
+ */
+public interface MobileApplication {
+	
+	String INFO ="Developed by Google Inc  ";
+	
+	public void  start();
+	public void pause();
+	public void stop();
+	//non abstract & static methods allowed from java 8 onwards
+	public default void version() {
+		System.out.println(INFO +"version is 1.0");
+	}
+	
+}
+
+MYMOBILEAPPLICATION1.JAVA
+
+package Com.lti.training.day4.interfaces;
+
+/**
+ * My dummy mobile app
+ * @author vj
+ *
+ */
+public class MyMobileApplication1 implements MobileApplication {
+
+	@Override
+	public void start() {
+		System.out.println("my awesome mobile Application1 started.....");
+		
+	}
+
+	@Override
+	public void pause() {
+		System.out.println("my awesome mobile Application1 paused.....");
+		
+	}
+
+	@Override
+	public void stop() {
+		System.out.println("my awesome mobile Application1 stoped.....");
+		
+	}
+	
+
+}
+
+MYMOBILEAPPLICATION2.JAVA
+
+package Com.lti.training.day4.interfaces;
+
+/**
+ * My dummy mobile app
+ * @author vj
+ *
+ */
+
+public class MyMobileApplication2 implements MobileApplication{
+	@Override
+	public void start() {
+		System.out.println("my awesome mobile Application2 staerted.....");
+		
+	}
+
+	@Override
+	public void pause() {
+		System.out.println("my awesome mobile Application2 paused.....");
+		
+	}
+
+	@Override
+	public void stop() {
+		System.out.println("my awesome mobile Application2 stoped.....");
+		
+	}
+	
+
+
+}
+
+TASKMANAGER.JAVA
+
+package Com.lti.training.day4.interfaces;
+
+
+/**
+ * an inbuilt task manager
+ * @author Google Inc
+ *
+ */
+public class TaskManager {
+  
+	 private MobileApplication[] runningApps;
+	private int count;
+	 
+	public TaskManager() {
+		runningApps = new MobileApplication[9999];
+	}
+	void inform(MobileApplication mobileApp) {
+		runningApps[count++] = mobileApp;
+
+	}
+		public int runningApps() {
+		return count;
+	}
+	 public void clearAll() {
+		 for(int i=0;i<count;i++)
+		 //for(MobileApplication app : runningApps)
+		  runningApps[i].stop();
+	 }
+}
+
+
+EXAMPLEONINNERCLASSANDLAMBDA.JAVA
+
+package Com.lti.training.day4.interfaces;
+
+
+interface Printer{
+	void print(String document); 
+}
+	 class DotMatrixPrinter implements Printer{
+
+		@Override
+		public void print(String document) {
+			System.out.println("currently printing"+document);
+			
+		}			
+}
+
+public class ExampleOnInnerClassAndLambda {
+// inner classes can be private
+	private class ABC{
+		
+		}
+			
+ public static void man(String[] args) {
+	// this is also an inner class
+	 /*class A{
+		 
+		}*/
+	 
+	 class DeskjetPrinter implements Printer{
+
+		@Override
+		public void print(String document) {
+			System.out.println("Now printing"+document);
+				}
+		 
+	 }
+	 Printer p=new DeskjetPrinter();
+	 p.print("abc.txt");
+	 
+	 //anonymous innerclass 
+	 Printer sp=new Printer() {
+		
+		@Override
+		public void print(String document) {
+			System.out.println("now printing "+document);
+			
+		}
+	};
+	sp.print("fgh.txt");
+	
+	//anonymous functions-a.k.a lambda expressions
+	// lambda expressions are nothing but anonymous inner classes in other class
+	Printer pr=(document)->{    
+//	Printer pr=(document)->{         //  it is calling the print function in the printer class
+		System.out.println("now printing"+document);
+	};
+	pr.print("hello.txt");
+	
+	Printer pt=doc->System.out.println("now printing"+doc);
+	pt.print("hi helli");
+	
+	
+	
+	
+	 }
+ }
+
+
+STRINGHAM.JAVA
+
+package Com.lti.training.day4.string;
+
+public class Stringham {
+	
+	public static void main(String[] args) {
+		String s1="java";
+		String s2="java";
+		String s3=new String("java");
+		String s4=new String("java");
+		System.out.println(s1==s2);//-----true
+		System.out.println(s3==s4);//----false
+		
+		String s5="JAVA";
+		String s6=s1.toUpperCase();
+		System.out.println(s5==s6);//-----false
+		
+		String s7="Hello";
+		String s8="World";
+		String s9="HelloWorld";
+		//String s10=s7+s8;-----false
+		String s10=(s7+s8).intern();//-----true
+		System.out.println(s9==s10);
+		
+		String str="abcdefghijklmnopqrtuvwxyzABSGDHKDSHIKHICFHASHDEFGKUSADHBKHKVDTSAKJHULYDKUASFYU7869896359589635465544468986324689368496896";
+        String newstr="";
+         
+        System.out.println("-----------using string concatination-------");
+        long ns1=System.nanoTime();
+        for(int i=0;i<str.length();i++)
+        	for(int j=0;j<=i;j++)
+        	  newstr+=str.charAt(j);
+        long ns2=System.nanoTime();
+        System.out.println("Result ::"+newstr);
+        System.out.println("approx time taken:"+(ns2-ns1)+"nanoseconds");
+
+	    System.out.println("----------using StringBuffer instead-------");
+	    StringBuffer strbuffer=new StringBuffer();
+	    ns1=System.nanoTime();
+        for(int i=0;i<str.length();i++)
+        	for(int j=0;j<=i;j++)
+        	 strbuffer.append(str.charAt(j));
+         ns2=System.nanoTime();
+        System.out.println("Result ::"+strbuffer);
+        System.out.println("approx time taken:"+(ns2-ns1)+"nanoseconds");
+	
+        System.out.println("----------using StringBuider instead-------");
+	    StringBuilder strbuilder=new StringBuilder();
+	    ns1=System.nanoTime();
+        for(int i=0;i<str.length();i++)
+        	for(int j=0;j<=i;j++)
+        	 strbuilder.append(str.charAt(j));
+         ns2=System.nanoTime();
+        System.out.println("Result ::"+strbuilder);
+        System.out.println("approx time taken:"+(ns2-ns1)+"nanoseconds");
+	
+	}
+}
+
+EXCEPTION HANDLING
+
+BANKACCOUNT.JAVA
+
+package Com.lti.training.day4.exceptionhandling;
+
+public class BankAccount {
+
+	private int acno;
+	private String name;
+	private double balance;
+	
+	public BankAccount(int acno, String name, double balance) {
+		super();
+		this.acno = acno;
+		this.name = name;
+		this.balance = balance;
+	}
+	
+  public double withdraw(double amount) throws Exception{
+	  if(amount>balance) {
+         Exception e = new Exception("Insufficient Balance");
+         throw e;
+	  }
+	  else {
+		  balance -= amount;
+		  return balance;
+		  }
+	  }
+  
+  public static void main(String[] args) {
+	  BankAccount bankAcc=new BankAccount(123,"vijay",50000);
+	  try {
+		  double balance=bankAcc.withdraw(6000);
+		  System.out.println("balance left: "+balance);
+	  }
+	  catch(Exception e) {
+		  System.out.println(e.getMessage());
+	  }
+  }
+}
+
+-----------------------------------------------------------------------------------------------
+
+Sorting........................
+
+USER.JAVA
+
+
+package com.lti.training.collections;
+
+public class User {
+
+	private String username ;
+	private String password;
+	private boolean active;
+
+	public User() {
+		
+	}
+	public User(String username, String password, boolean active) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.active = active;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
+	
+}
+
+
+USERMANAGER.JAVA
+
+package com.lti.training.collections;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserManager {
+
+	private List<User> users;
+	
+	public UserManager() {
+		users = new ArrayList<User>();
+		users.add(new User("san","123",false));
+		users.add(new User("san1","193",true));
+		users.add(new User("san2","423",true));
+	}
+	
+	public  boolean isValidUser(String username , String password) {
+	for(User user : users) 
+ 		  if(user.getUsername().equals(username)) 
+ 			 if(user.getPassword().equals(password))
+ 				 if(user.isActive())
+ 					 return true;
+ 		  return false;
+ 		  
+ 	   } 
+ 		
+	public static void main(String[] args) {
+		  UserManager mgr = new UserManager();
+		 boolean isValid = mgr.isValidUser("san", "173");
+		  System.out.println(isValid);
+	}
+	}
+	
+
+
+exonmap.java
+
+package com.lti.training.collections;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ExOnMap {
+
+	public static void main(String[] args) {
+		Map<String, String>map1 = new HashMap<String, String>();
+	    map1.put("192.168.1.1", "vijay");
+	    map1.put("192.168.1.5", "karthick");
+	    map1.put("192.168.1.2", "surya");
+	    map1.put("192.168.1.3","sam");
+	    
+	    String user=map1.get("192.168.1.1");
+	    System.out.println(user);
+	}
+}
+
+
+
+
+
+
+EXONSORTING.JAVA
+
+
+package com.lti.training.collections;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.TreeSet;
+
+
+
+public class ExOnSorting {
+
+	public static void main(String[] args) {
+		// for sorting we can use a dedicate sort method
+		//alternatively treeSet is a type [of collection where data is by default sorted
+		//for sorting the data we need to implement comparable / comparator interface 
+		
+		//if we need to store int,float,double or any other primitive value in a collection , we need to 
+		//use the wrapped classes
+		//primitive are not supported directly
+		List<Integer>list1 = new ArrayList<Integer>();
+		list1.add(10);
+		list1.add(50);
+		list1.add(30);
+		list1.add(20);
+		list1.add(40);
+		
+		System.out.println("...before sorting");
+		for(Integer no : list1)
+			System.out.println(no);
+		
+		TreeSet<Integer> tr = new TreeSet<Integer>(list1);
+		System.out.println("...after sorting");
+		for(Integer no : tr)
+			System.out.println(no);
+	
+		Collections.sort(list1);
+		System.out.println("...after sorting(using sort method..........");
+		for(Integer no : list1)
+			System.out.println(no);
+
+//how to sort data in case of the user defined object in the collection 
+		  List<Person>listOfPersons = new ArrayList<Person>();
+		  listOfPersons.add(new Person("aail",33));
+		  listOfPersons.add(new Person("il",33));
+		  listOfPersons.add(new Person("rya",43));
+		
+		  //write our own comparator
+		  Comparator<Person>c = new Comparator<Person>() {
+			
+			@Override
+			public int compare(Person p1, Person p2) {
+				return  p1.getName().compareTo(p2.getName());
+			
+		         	}
+		  };
+		  Comparator<Person>c2 = new Comparator<Person>() {
+				
+				@Override
+				public int compare(Person p1, Person p2) {
+					return  p1.getAge() - p2.getAge();
+				}
+		  };
+		  
+		  Collections.sort(listOfPersons, c2);
+			for(Person p : listOfPersons)
+				System.out.println(p.getName());
+	}
+	}
+
+-------------------------------------------------------------------------------------
+
+                                      WEB STUFF
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<style>
+        #myProgress {
+          width: 20%;
+          background-color: #ddd;
+        }
+        
+        #myBar {
+          width: 2%;
+          height: 10px;
+          background-color: #4CAF50;
+        }
+        </style>
+<body>
+    <h1>welcome to Html5</h1>
+    <h2>Loding progress</h2>
+   
+    <div id="myProgress">
+            <div id="myBar">10%</div>
+          </div>
+          <br>
+          <button onclick="move()">upload file </button> 
+            
+    <script>
+            function move() {
+              var elem = document.getElementById("myBar");   
+              var width = 1;
+              var id = setInterval(frame, 400);
+              function frame() {
+                if (width >= 100) {
+                  clearInterval(id);
+                } else {
+                  width++; 
+                  elem.style.width = width + '%'; 
+                  elem.innerHTML = width * 1  + '%';
+                }
+              }
+            }
+            </script>
+            
+</body>
+</html>
+
+
+
+example2.html
+
+<!DOCTYPE html>
+<html>
+<head>
+   <style>
+
+p {outline-color:burlywood ;}
+   p.solid {outline-style: solid;}
+   </style>
+   
+</head>
+<body>
+ <form>   
+    
+    <center>
+            <p class="solid">     
+    NAME :  <input type="text" id="n" /><!-- displaying a textfield -->
+    <br />
+     DOJ :    <input type="date" id="m" />
+    <br />
+     Email :  <input type="email" id="o" />
+    <br />
+    <button type="submit" onclick="tosubmit()" value="Get Alert!">Submit</button></p>
+    </center>
+
+    <script>
+        function tosubmit(){
+        var n= document.getElementById("n").value;
+        var m= document.getElementById("m").value;
+        var o= document.getElementById("o").value;
+        
+
+            alert("Name:"+n+"\nDOJ:"+m+"\nEMAIL:"+o);
+        }
+</script>
+ </form>
+</body>
+</html>
+
+
+amazon
+amazon.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="example3.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="regform">
+        <form>
+                <p><font size="6" color="black"><h1>create account</h1></font></p>
+            <label>your name</label>
+            <input />
+            <label>mobile number</label>
+            <select>
+                <option>IN +91</option>
+                <option>US +1</option>
+            </select>
+            <input />
+            <label>Email (optional)</label>
+            <input />
+            <label>Password</label>
+            <input/>
+            <label>
+         <p><button id="b"><font size="12" >continue</button></font></p>
+            </label>
+        </form>
+    </div>
+</body>
+</html>
+
+example3.css
+
+label{
+    display: block;
+    border-radius: 8px;
+    margin-top:25px;
+}
+input {
+    width: 90%;
+    outline-color: #df911d;
+  
+    line-height: 25px;
+}
+#regform{
+    display: block;
+    border-radius: 5px;
+    border:3px#ddd solid;
+    background-color: #fff;
+    width: 300px;
+    margin:auto;
+    font-size:2%;
+    line-height: 30px;
+    font-size: 25px;
+    padding: 16px 18px!important;
+    outline-color:#df911d;
+
+    
+}
+#b{
+    background-color: #cc8b13;
+    width: 90%;
+
+}
+
+
+example4.html 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h2{
+            text-shadow: 10px 10px 10px #333
+        }
+        h3{
+            color : white;
+            text-shadow: black 0px 0px 20px;
+        }
+        .style1{
+            border: 2px solid #a1a1a1;
+            padding: 10px 10px;
+            background-color: aqua;
+            width: 300px;
+            border-radius: 25px;
+
+        }
+        .style2{
+            border: 2px solid #a1a1a1;
+            padding: 10px 10px;
+            background-color: orange;
+            width: 300px;
+            border-top-right-radius: 25px;
+            border-bottom-left-radius: 10px;
+
+        }
+        </style>
+</head>
+<body>  
+   <h2>hello everyone</h2>
+   <h3>hello again</h3> 
+   <input class = "style1"/>
+   <input class = "style2 "/>
+</body>
+</html>
+
+
+
+-----------------------------------------------------------------------------------
+
+amazon.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <h2><center>amazon.com</center></h2>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="amazon.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="regform">
+        
+                <p><font size="6" color="black"><h1>reate account</h1></font></p>
+            <label> your name </label>
+            <input id = "name" / >
+            <p style="color: red" id = "checkname">
+                    
+                 </p>
+             <script>
+            function val(){
+               var x=document.getElementById("name").value;  
+               if(x.length < 2){
+                  document.getElementById("name").style.border="1px solid red";
+                  document.getElementById("checkname").innerHTML = "! name should be atleast two char";
+                 
+               }
+               var z=document.getElementById("no").value;  
+               if(z.length < 10){
+                 document.getElementById("no").style.border="1px solid red";
+                 document.getElementById("checkno").innerHTML = "! no should be atleast 10 digits";
+                 
+               }
+                  var y=document.getElementById("pass").value;  
+               if(y.length < 6){
+                document.getElementById("pass").style.border="1px solid red";
+                document.getElementById("checkpass").innerHTML = "! password should be atleast 6 char";
+                  
+               }
+               
+            }
+                </script>
+            <label>mobile number</label>
+            
+            <select>
+                <option>IN +91</option>
+                <option>US +1</option>
+            </select>
+            <input id = "no"/>
+            <p style="color: red"id= "checkno">
+                </p>
+            <label>Email (optional)</label>
+            <input/>
+            <label>Password</label>
+            
+            <input id = "pass"/>
+            <p  style="color: red"id = "checkpass">
+                </p>
+                <p ><font size="2" color="blue" >!atleast 6digit long</p>
+            <label>
+                <p> <font size="3" color="black" > We will send you a text to verify your phone.<br>
+                    Message and Data rates may apply.</p>
+         <p><button id="b" onclick = "val()"><font size="5"  >continue</button></font></p>
+
+            </label>
+        
+    </div>
+</body>
+</html>
+
+
+amazon.css
+
+label{
+    display: block;
+    border-radius: 10px;
+    margin-top:25px;
+}
+input {
+    width: 60%;
+    outline-color: orange;
+    line-height: 25px;
+}
+#regform{
+    display: block;
+    border-radius: 5px;
+    border:3px#ddd solid;
+    background-color: #fff;
+    width: 350px;
+    margin:auto;
+    font-size:2%;
+    line-height: 25px;
+    font-size: 25px;
+    padding: 16px 18px!important;
+   
+}
+#b{
+    background-color: #cc8b13;
+    width: 100%;
+    height: 50px;
+
+}
+.checkname{
+    font-size: 90px;
+    outline-style: dotted;
+   
+}
+.checkno{
+    font-size: 90px;
+}
+.checkpass{
+    font-size:90px; 
+}
+---------------------------------------------------------------------------
+
+
+
+
+jquery
+
+example1.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery</title>
+    <!--<script scr = "https://code.jquery.com/jquery-3.4.1.js"></script>-->
+        <script src = "jquery-3.4.1.js"></script>
+        <script>
+            //logically similar to the main function in java
+        $(function(){                 
+            console.log($);
+            console.log(jQuery);
+            $("h1").css("color","red");
+        })
+        </script>
+
+</head>
+<body>
+    <h1>checking if the jquer loaded or not </h1>
+</body>
+</html>
+
+
+
+example2.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery</title>
+    <!--<script scr = "https://code.jquery.com/jquery-3.4.1.js"></script>-->
+        <script src = "jquery-3.4.1.js"></script>
+        <script>
+        $(function(){                 
+           //understanding DOM transverse
+           //(css selectors )
+           //$("li").text("Hello");
+           //$("#products").css("color","blue");
+           //$("#services").css("color","red");
+           //$("#products > li").css("color","red");
+           //$("#products >> li").css("color","green");
+           //$("#products li:even").css("color","red");
+           $("#products > li,#services > li:first").css("color","red");
+          
+        })
+         </script>
+
+</head>
+<body>
+    <ul id="products">
+        <li>Laptops</li>
+        <li>Mobiles</li>
+        <ul>
+            <li>Sony</li>
+            <li>Apple</li>
+        </ul>
+        <li>Headphones</li>
+        </ul>
+        <ul id="services">
+            <li>Email</li>
+            <li>Chat</li>
+            <li>SMS</li>
+        </ul>
+</body>
+</html>
+
+example3.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery</title>
+    <!--<script scr = "https://code.jquery.com/jquery-3.4.1.js"></script>-->
+        <script src = "jquery-3.4.1.js"></script>
+        <script>
+        $(function(){                 
+           //understanding DOM traversal
+           //This time using jQuery traversal API
+           // $("#products").find("li").css("color","red");
+           $("#products").children("li").css("color","red");
+           $("#services").find("li").first().css("color","green");
+           $("li").last().prev().css("color","blue");
+           $("li").last().hide();
+
+
+
+        })
+         </script>
+
+</head>
+<body>
+    <ul id="products">
+        <li>Laptops</li>
+        <li>Mobiles</li>
+        <ul>
+            <li>Sony</li>
+            <li>Apple</li>
+        </ul>
+        <li>Headphones</li>
+        </ul>
+        <ul id="services">
+            <li>Email</li>
+            <li>Chat</li>
+            <li>SMS</li>
+        </ul>
+</body>
+</html>
+
+example4.html
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery</title>
+        <script src = "jquery-3.4.1.js"></script>
+        <script>
+        $(function(){                 
+                $("button").click(function(){
+                   var para=$ ("<p/>").text("15000 RS").attr("style","color:blue");
+                   $(".products").find("p").remove();  //stop the repeating    
+                  $(".products").append(para);
+                  
+                //$("#id1").click(function(){
+                    // var para=$ ("<p/>").text("15000 RS").attr("style","color:blue");            
+                })
+        })
+         </script>
+
+</head>
+<body>
+    <ul>
+        <li class="products" style="list-style-type: none">
+            <h2>Nokia 6.1plus</h2>
+            <button>GET PRICE</button>
+            <!--<p id=id1></p>-->
+         </li>
+    </ul>
+</body>
+</html>
+
+
+example5.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery</title>
+        <script src = "jquery-3.4.1.js"></script>
+        <script>
+        $(function(){                 
+                $("button").click(function(){
+                   var para=$ ("<p/>").text("15000 rs").attr("style","color:blue");    
+                 $(this).closest(".product").find("p").remove();                  
+                $(this).after(para);
+
+
+                })
+        })
+         </script>
+
+</head>
+<body>
+   <style>
+       .product{
+      display:inline-block; 
+      width: 250px;
+       }
+   
+   </style>
+    
+    <ul style="list-style-type: none">
+        <li class="product">
+            <h2>Nokia 6600</h2>
+            <button>GET PRICE</button>
+        </li>
+        <li  class="product">
+                <h2>Samsung s10</h2>
+                <button>GET PRICE</button>
+            </li>    
+            <li class="product">
+                    <h2>iphone</h2>
+                    <button>GET PRICE</button>
+                </li>
+        
+        
+        
+        
+         </li>
+    </ul>
+</body>
+</html>
+
+
+----------------------------------------------------------------------------------
+
+example1.js
+
+function add(x,y){
+    return x+y;
+}
+
+var result=add(10,20);
+console.log(result);
+
+
+example2.js
+
+const fs=require('fs');
+fs.readFile('sample.txt','utf8',(err,data)=> {
+    if(err) throw err;
+    else
+    console.log(data);
+})
+
+
+example3.js
+
+//understanding how to expose functions
+function add(x,y) {
+    return x+y;
+
+    }
+function sub(x,y)  {
+     return x-y;
+
+}  
+module.exports={   //like declaring public in java  
+    add,
+    sub
+}
+
+example4.js
+
+const math = require('./example3');
+
+var result = math.add(10,20);
+console.log(result);
+console.log(math.sub(10,20));
+
+
+example5.js
+
+//using an external / thirdparty library
+
+//to test this code:
+//1 from the command prompt type ->  node example5.js
+//2 open the browser and type - >  http://localhost:3000
+const express = require('express')
+const app = express()
+ 
+app.get('/', function (req, res) {
+  res.send('<h1>Hello World</h1>')
+})
+ 
+app.listen(3000)
+
+
+
+---------------------------------------------------------------------------
+
+app.component.ts
+
+import { Component} from'@angular/core';
+
+
+@Component({
+    selector:'hello',
+    template : `
+         <h1>{{message}}</h1>
+    `
+
+})
+
+export class HelloComponent{
+    message: string="Hello Everyone!";
+}
+
+randomno.component.ts
+
+import { Component} from'@angular/core';
+
+
+@Component({
+    selector:'hello1',
+    template : `
+    <button (click) = "generate()">Click here</button>
+<h2 *ngIf="randomno">your lucky no is {{randomno}}</h2>
+         
+    `
+})
+
+export class RandomnoComponent{
+    //randomno :number = Math.floor(Math.random()*10);
+randomno : number;
+
+      generate(){
+       this.randomno = Math.floor(Math.random()*10);
+}
+ }
+
+
+login.component.ts
+
+import {Component} from '@angular/core';
+
+@Component({
+    selector: 'login',
+    templateUrl: './login.component.html'
+})
+
+export class LoginComponent{
+
+username : string;
+password : string;
+message : string;
+aunthenticate(){
+if(this.username == 'aaa' && this.password =='123')
+this.message = 'valid user';
+else
+this.message = 'Invalid username / password';
+}
+}
+
+login.component.html
+
+<form (ngSubmit)="aunthenticate()">
+     <label>Username</label>
+     <input type="text" name = "username" [(ngModel)] = username />
+     <br/>
+     <label>Password</label>
+     <input type="password" name = "password" [(ngModel)] = password/>
+     <br/>
+     <button type="submit">Login</button>
+     
+</form>
+<h1>{{message}}</h1>
+
+calculator.component.ts
+
+import {Component} from '@angular/core';
+
+@Component({
+    selector: 'calculator',
+    templateUrl: './calculator.component.html'
+})
+
+export class CalculatorComponent{
+
+a : number;
+b : number;
+c : number;
+calculator(){
+this.c=this.a+this.b;
+}}
+
+
+calculator.component.html
+
+<form (ngSubmit)="calculator()">
+     <label>a</label>
+     <input type="number" name = "a" [(ngModel)] = a/>
+     <br/>
+     <label>b</label>
+     <input type="number" name = "b" [(ngModel)] = b/>
+     <br/>
+     <button type="submit">calculate</button>
+     {{c}}
+</form>
+<h1>{{c}}</h1>
+
+list-product.component.ts
+
+import { Component } from "@angular/core";
+@Component({
+    selector : 'list-product',
+    templateUrl : './list-product.component.html'
+    //styleUrls:['./list-product.component.css']
+     
+
+})
+
+export class ListProductComponent{
+
+     products :Product[];
+
+        display(){
+            //constructor(){
+            this.products=[
+            new Product(1,"nokia 6600",5000,99),
+            new Product(2,"Sony Xperia",25000,99),
+            new Product(3,"Samsung s10",35000,99),
+            new Product(4,"iphone X",55000,99),
+            new Product(5,"MI NOTE 7",15000,99)
+            ]
+        }
+
+}
+
+export class Product{
+
+    id : number;
+    name : string;
+    price : number;
+    quantity : number;
+
+    constructor(id :number,name :string,price :number,quantity :number){
+    this.id=id;
+    this.name=name;
+    this.price=price;
+    this.quantity=quantity;
+
+    
+}
+}
+
+
+list-product.component.html
+
+<button (click) = "display()">show</button>
+<p *ngFor="let p of products">
+  Id :{{p.id}}<br/>
+  Name :{{p.name}}<br/>
+  Price :{{p.price}}<br/>
+  Quantity :{{p.quantity}}<br/>
+  </p>
+     
+ 
+ app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    
+    <div style="text-align:center">
+      <h1>
+        Welcome to {{title}}
+      </h1>
+      <hello></hello>
+      <hello1></hello1>
+      <login></login>
+      <calculator></calculator>
+      <list-product></list-product>
+      </div>
+      
+    
+  `,
+  styles: []
+})
+export class AppComponent {
+  title = 'angular development';
+}
+
+app.module.ts
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { HelloComponent } from './hello.component';
+import { RandomnoComponent} from './randomno.component';
+import { LoginComponent} from'./login.component';
+import { CalculatorComponent} from './calculator.component';
+import { ListProductComponent} from './list-product.component'
+@NgModule({
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    RandomnoComponent,
+    LoginComponent,
+    CalculatorComponent,
+    ListProductComponent
+
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+
+----------------------------------------------------------------
+
